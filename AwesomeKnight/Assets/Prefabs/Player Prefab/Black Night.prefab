@@ -18,6 +18,18 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 1.2, z: -0.26}
+--- !u!114 &2608006269916899586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1822714166694263904}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0ddfd6b02dc5dd74cb65c0a43e23801a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1822714166694361784
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39,7 +51,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400056, guid: 123f7c849b59076418e1222ca0571478, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 100.52
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 400056, guid: 123f7c849b59076418e1222ca0571478, type: 3}
       propertyPath: m_LocalPosition.y
@@ -47,7 +59,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400056, guid: 123f7c849b59076418e1222ca0571478, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 74.54
+      value: 75
       objectReference: {fileID: 0}
     - target: {fileID: 400056, guid: 123f7c849b59076418e1222ca0571478, type: 3}
       propertyPath: m_LocalRotation.w
