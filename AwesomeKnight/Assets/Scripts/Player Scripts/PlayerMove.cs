@@ -26,8 +26,38 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void Update() {
-        MoveThePlayer();
-        charController.Move(player_Move);
+
+        CalculateHeight();
+        CheckIfFinishedMovement();
+
+        /*MoveThePlayer();
+        charController.Move(player_Move);*/
+    }
+
+    bool IsGrounded() {
+        return collisionFlags == CollisionFlags.CollidedBelow ? true : false; // This function detects if the player is colliding with the ground
+    }
+
+    void CalculateHeight() { 
+        if(IsGrounded()) {
+            height = 0f; // If the function to detect the player in the ground is true, the the height will be 0
+        } else {
+            height -= gravity * Time.deltaTime; //
+        }
+    }
+
+    void CheckIfFinishedMovement() { 
+        if(!finished_Movement) { 
+            if(!anim.IsInTransition(0) && !anim.GetCurrentAnimatorStateInfo(0).IsName("Stand") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.8f) {
+                // Normalized time of the animation is represented from 0 to 1
+                // 0 is the beginning of the animation, 0.5 is the middle and 1 is the ending
+                finished_Movement = true;
+            }
+        } else {
+            MoveThePlayer();
+            player_Move.y = height * Time.deltaTime;
+            collisionFlags = charController.Move(player_Move);
+        }
     }
 
     void MoveThePlayer() {
