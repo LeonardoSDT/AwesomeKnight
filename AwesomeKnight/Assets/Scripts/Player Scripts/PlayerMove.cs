@@ -26,12 +26,8 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void Update() {
-
         CalculateHeight();
         CheckIfFinishedMovement();
-
-        /*MoveThePlayer();
-        charController.Move(player_Move);*/
     }
 
     bool IsGrounded() {
