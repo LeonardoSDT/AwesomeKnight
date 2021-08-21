@@ -57,7 +57,7 @@ public class PlayerMove : MonoBehaviour {
     }
 
     void MoveThePlayer() {
-        if(Input.GetMouseButtonDown(0)) {
+        if(Input.GetMouseButtonUp(0)) {
 
             //print(Input.mousePosition);
 

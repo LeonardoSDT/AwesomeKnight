@@ -5,15 +5,35 @@ using UnityEngine;
 public class MouseScript : MonoBehaviour {
 
     public Texture2D cursorTexture;
-    // public GameObject mousePoint;
     private CursorMode mode = CursorMode.ForceSoftware;
     private Vector2 hotSpot = Vector2.zero;
 
-    void Start() {
-        
-    }
+
+    public GameObject mousePoint;
+    private GameObject instantiatedMouse;
 
     void Update() {
-        Cursor.SetCursor(cursorTexture, hotSpot, mode);
+        //Cursor.SetCursor(cursorTexture, hotSpot, mode);
+
+        if (Input.GetMouseButtonUp(0)) { //it detects when the button is released, not pressed, the 0 means the left button of the mouse
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+
+            if (Physics.Raycast(ray, out hit)) { 
+                if (hit.collider is TerrainCollider) {
+                    Vector3 temp = hit.point;
+                    temp.y = 0.25f;
+
+                    if (instantiatedMouse == null) {
+                        instantiatedMouse = Instantiate(mousePoint) as GameObject;
+                        instantiatedMouse.transform.position = temp;
+                    } else {
+                        Destroy(instantiatedMouse);
+                        instantiatedMouse = Instantiate(mousePoint) as GameObject;
+                        instantiatedMouse.transform.position = temp;
+                    }
+                }
+            }
+        }
     }
 }
