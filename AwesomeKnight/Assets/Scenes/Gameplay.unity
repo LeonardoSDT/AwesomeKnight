@@ -429,6 +429,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 149571347}
   m_CullTransparentMesh: 1
+--- !u!1 &172769748 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1822714166694263904, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+  m_PrefabInstance: {fileID: 5502046774309313305}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &172769754
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 172769748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7c0a0a7ba67a2944882b167467ea38d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &218283073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3196,6 +3213,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_1
+      value: 
+      objectReference: {fileID: 563297366}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_2
+      value: 
+      objectReference: {fileID: 1037534060}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_3
+      value: 
+      objectReference: {fileID: 758289285}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_4
+      value: 
+      objectReference: {fileID: 724747149}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_5
+      value: 
+      objectReference: {fileID: 286892555}
+    - target: {fileID: 5192718000710022065, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
+      propertyPath: fillWaitImage_6
+      value: 
+      objectReference: {fileID: 669629228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 28302e82665289f41aceabd002bc1c14, type: 3}
 --- !u!1001 &5527681801117304267
