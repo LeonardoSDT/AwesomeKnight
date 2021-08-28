@@ -11,7 +11,11 @@ public class DestroyPointer : MonoBehaviour {
     }
 
     void Update() {
-        if (Vector3.Distance(transform.position, player.position) <= 1f) {
+        if(player) {
+            if (Vector3.Distance(transform.position, player.position) <= 1f) {
+                Destroy(gameObject);
+            }
+        } else {
             Destroy(gameObject);
         }
     }

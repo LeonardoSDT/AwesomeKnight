@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour {
     public void TakeDamage(float amount) {
         health -= amount;
 
-        print("Enemy Took Damage, health is " + health);
+        //print("Enemy Took Damage, health is " + health);
 
         if(health <= 0) { 
             

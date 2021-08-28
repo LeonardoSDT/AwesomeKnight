@@ -18,19 +18,21 @@ public class CameraFollow : MonoBehaviour {
     }
 
     void Update() {
-        target_Height = player.position.y + follow_Height;
+        if(player) {
+            target_Height = player.position.y + follow_Height;
 
-        current_Rotation = transform.eulerAngles.y;
+            current_Rotation = transform.eulerAngles.y;
 
-        current_Height = Mathf.Lerp(transform.position.y, target_Height, 0.9f * Time.deltaTime);
+            current_Height = Mathf.Lerp(transform.position.y, target_Height, 0.9f * Time.deltaTime);
 
-        Quaternion euler = Quaternion.Euler(0f, current_Rotation, 0f);
+            Quaternion euler = Quaternion.Euler(0f, current_Rotation, 0f);
 
-        Vector3 target_Position = player.position - (euler * Vector3.forward) * follow_Distance;
+            Vector3 target_Position = player.position - (euler * Vector3.forward) * follow_Distance;
 
-        target_Position.y = current_Height;
+            target_Position.y = current_Height;
 
-        transform.position = target_Position;
-        transform.LookAt(player);
+            transform.position = target_Position;
+            transform.LookAt(player);
+        }
     }
 }

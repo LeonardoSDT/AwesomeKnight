@@ -47,6 +47,8 @@ public class EnemyControl : MonoBehaviour {
 
     // Health Script
 
+    private EnemyHealth enemyHealth;
+
     void Awake() {
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         navAgent = GetComponent<NavMeshAgent>();
@@ -55,35 +57,52 @@ public class EnemyControl : MonoBehaviour {
 
         initialPosition = transform.position;
         whereTo_Navigate = transform.position;
+
+        enemyHealth = GetComponent<EnemyHealth>();
     }
 
     void Update() {
         
         // If Health is <= 0 It will set the state to death
+        if(enemyHealth.health <= 0) {
+            enemy_CurrentState = EnemyState.DEATH;
+        }
 
-        if(enemy_CurrentState != EnemyState.DEATH) {
-            
-            enemy_CurrentState = SetEnemyState(enemy_CurrentState, enemy_LastState, enemyToPlayerDistance);
+        if(playerTarget) {
+            if (enemy_CurrentState != EnemyState.DEATH)
+            {
 
-            if(finished_Movement) {
-                
-                GetStateControl(enemy_CurrentState);
+                enemy_CurrentState = SetEnemyState(enemy_CurrentState, enemy_LastState, enemyToPlayerDistance);
 
-            } else {
+                if (finished_Movement)
+                {
 
-                if(!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle")) {
-                    finished_Movement = true;
-                } else if(!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsTag("Atk1") || anim.GetCurrentAnimatorStateInfo(0).IsTag("Atk2")) {
-                    anim.SetInteger("Atk", 0);
+                    GetStateControl(enemy_CurrentState);
+
+                }
+                else
+                {
+
+                    if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Idle"))
+                    {
+                        finished_Movement = true;
+                    }
+                    else if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsTag("Atk1") || anim.GetCurrentAnimatorStateInfo(0).IsTag("Atk2"))
+                    {
+                        anim.SetInteger("Atk", 0);
+                    }
                 }
             }
-        } else {
-            anim.SetBool("Death", true);
-            charController.enabled = false;
-            navAgent.enabled = false;
+            else
+            {
+                anim.SetBool("Death", true);
+                charController.enabled = false;
+                navAgent.enabled = false;
 
-            if(!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f) {
-                Destroy(gameObject, 2f);
+                if (!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.95f)
+                {
+                    Destroy(gameObject, 2f);
+                }
             }
         }
     }
