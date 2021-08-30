@@ -7,6 +7,7 @@ public class PlayerMove : MonoBehaviour {
     private Animator anim;
     private CharacterController charController;
     private CollisionFlags collisionFlags = CollisionFlags.None;
+    private Transform player;
 
     private float moveSpeed = 5f;
     private bool canMove;

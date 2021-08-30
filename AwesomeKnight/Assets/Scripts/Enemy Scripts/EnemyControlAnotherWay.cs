@@ -32,7 +32,10 @@ public class EnemyControlAnotherWay : MonoBehaviour {
 
     void Update() {
         if(enemyHealth.health > 0) {
-            MoveAndAttack();
+
+            if(playerTarget) { 
+                MoveAndAttack();
+            }
         } else {
             anim.SetBool("Death", true);
             navAgent.enabled = false;

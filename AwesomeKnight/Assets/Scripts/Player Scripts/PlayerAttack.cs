@@ -45,50 +45,56 @@ public class PlayerAttack : MonoBehaviour {
         }
 
         if(Input.GetKeyDown(KeyCode.Alpha1)) {
-            playerMove.TargetPosition = transform.position;
-
             // fadeImages[0] meaning image that's at index 0, for example the first image
             if(playerMove.FinishedMovement && fadeImages[0] != 1 && canAttack) {
                 fadeImages[0] = 1;
                 anim.SetInteger("Atk", 1);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         } else if(Input.GetKeyDown(KeyCode.Alpha2)) {
-            playerMove.TargetPosition = transform.position;
-
             // fadeImages[1] meaning image that's at index 1, for example the second image
             if(playerMove.FinishedMovement && fadeImages[1] != 1 && canAttack) {
                 fadeImages[1] = 1;
                 anim.SetInteger("Atk", 2);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         } else if(Input.GetKeyDown(KeyCode.Alpha3)) {
-            playerMove.TargetPosition = transform.position;
-
             // fadeImages[2] meaning image that's at index 2, for example the third image
             if(playerMove.FinishedMovement && fadeImages[2] != 1 && canAttack) {
                 fadeImages[2] = 1;
                 anim.SetInteger("Atk", 3);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         } else if(Input.GetKeyDown(KeyCode.Alpha4)) {
-            playerMove.TargetPosition = transform.position;
-
             if(playerMove.FinishedMovement && fadeImages[3] != 1 && canAttack) {
                 fadeImages[3] = 1;
                 anim.SetInteger("Atk", 4);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         } else if(Input.GetKeyDown(KeyCode.Alpha5)) {
-            playerMove.TargetPosition = transform.position;
-
             if(playerMove.FinishedMovement && fadeImages[4] != 1 && canAttack) {
                 fadeImages[4] = 1;
                 anim.SetInteger("Atk", 5);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         }
         else if(Input.GetMouseButtonDown(1)) {
-            playerMove.TargetPosition = transform.position;
-
             if(playerMove.FinishedMovement && fadeImages[5] != 1 && canAttack) {
                 fadeImages[5] = 1;
                 anim.SetInteger("Atk", 6);
+
+                playerMove.TargetPosition = transform.position;
+                RemoveCursorPoint();
             }
         } else {
             anim.SetInteger("Atk", 0);
@@ -165,5 +171,12 @@ public class PlayerAttack : MonoBehaviour {
         }
 
         return faded;
+    }
+
+    void RemoveCursorPoint() {
+        GameObject cursorObj = GameObject.FindGameObjectWithTag("Cursor");
+        if(cursorObj) {
+            Destroy(cursorObj);
+        }
     }
 }
