@@ -13,7 +13,5 @@ public class EnemyHealth : MonoBehaviour {
         health -= amount;
 
         health_Img.fillAmount = health / 100f;
-
-        //print("Enemy Took Damage, health is " + health);
     }
 }

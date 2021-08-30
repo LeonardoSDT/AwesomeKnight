@@ -13,6 +13,8 @@ public class PlayerHealth : MonoBehaviour {
 
     private Image health_Img;
 
+    public GameOverScript gameOverScript;
+
     void Awake() {
         anim = GetComponent<Animator>();
 
@@ -22,6 +24,10 @@ public class PlayerHealth : MonoBehaviour {
     public bool Shielded { 
         get { return isShielded; }
         set { isShielded = value; }
+    }
+
+    public void GameOver() {
+        gameOverScript.Setup();
     }
 
     public void TakeDamage(float amount) {
@@ -37,6 +43,7 @@ public class PlayerHealth : MonoBehaviour {
                 if(!anim.IsInTransition(0) && anim.GetCurrentAnimatorStateInfo(0).IsName("Death") && anim.GetCurrentAnimatorStateInfo(0).normalizedTime >= 0.65) {
                     // Destroy player
                     Destroy(gameObject);
+                    GameOver();
                 }
             }
         }        
