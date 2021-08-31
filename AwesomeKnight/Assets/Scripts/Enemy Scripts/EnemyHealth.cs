@@ -9,6 +9,8 @@ public class EnemyHealth : MonoBehaviour {
 
     public Image health_Img;
 
+    private Transform bossTarget;
+
     public void TakeDamage(float amount) {
         health -= amount;
 
