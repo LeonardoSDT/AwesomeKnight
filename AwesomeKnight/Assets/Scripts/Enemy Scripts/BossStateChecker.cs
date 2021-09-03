@@ -18,8 +18,6 @@ public class BossStateChecker : MonoBehaviour {
 
     private EnemyHealth bossHealth;
 
-    public GameOverScript gameOverScript;
-
     void Awake() {
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         bossHealth = GetComponent<EnemyHealth>();
@@ -29,10 +27,6 @@ public class BossStateChecker : MonoBehaviour {
         if(playerTarget) { 
             SetState();
         }
-    }
-
-    public void GameOver() {
-        gameOverScript.Setup();
     }
 
     void SetState() {
@@ -51,7 +45,6 @@ public class BossStateChecker : MonoBehaviour {
 
             if(bossHealth.health <= 0f) {
                 boss_State = Boss_State.DEATH;
-                GameOver();
             }
         }
     }

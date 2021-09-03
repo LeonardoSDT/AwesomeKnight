@@ -13,6 +13,8 @@ public class BossControl : MonoBehaviour {
     private float currentAttackTime;
     private float waitAttackTime = 1f;
 
+    public GameOverScript gameOverScript;
+
     void Awake() {
         playerTarget = GameObject.FindGameObjectWithTag("Player").transform;
         bossStateChecker = GetComponent<BossStateChecker>();
@@ -34,6 +36,10 @@ public class BossControl : MonoBehaviour {
         }
     }
 
+    public void GameOver() {
+        gameOverScript.Setup();
+    }
+
     void GetStateControl() { 
         if(bossStateChecker.BossState == Boss_State.DEATH) {
 
@@ -41,6 +47,7 @@ public class BossControl : MonoBehaviour {
 
             anim.SetBool("Death", true);
             Destroy(gameObject, 3f);
+            GameOver();
         } else {
             if(bossStateChecker.BossState == Boss_State.PAUSE) {
                 navAgent.isStopped = false;
